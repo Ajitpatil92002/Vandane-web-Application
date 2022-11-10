@@ -1,0 +1,116 @@
+<nav class="relative mx-auto p-6 z-50 w-full" id="navbar">
+  <div class="flex items-center justify-between">
+    <div class="cursor-pointer">
+      <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000040/vandane/team/vandane_logo_oltfsz.png" alt="Vandane_logo" class="w-20" />
+    </div>
+    <div>
+      <ul class="hidden md:flex items-center space-x-6">
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/">Home</a>
+        </li>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/pravachans">Pravachans</a>
+        </li>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/temples">Temples</a>
+        </li>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="#">About</a>
+        </li>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/team">Teams</a>
+        </li>
+        <% if (user) { %>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/auth/logout">Logout</a>
+        </li>
+        <% } else { %>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/auth/register">Sign Up</a>
+        </li>
+        <li
+          class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+        >
+          <a href="/auth/login">Login</a>
+        </li>
+        <% } %>
+      </ul>
+
+      <button
+        id="menu-btn"
+        class="block hamburger md:hidden focus:outline-none"
+      >
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="md:hidden">
+    <div
+      id="menu"
+      class="absolute hidden flex-col space-y-6 list-none items-center text-center w-[90%] bg-white shadow-lg z-40"
+    >
+      <li></li>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="/">Home</a>
+      </li>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="/pravachans">Pravachans</a>
+      </li>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="/temples">Temples</a>
+      </li>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="#">About</a>
+      </li>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="#">Teams</a>
+      </li>
+      <% if (user) { %>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="/auth/logout">Logout</a>
+      </li>
+      <% } else { %>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="/auth/register">Sign Up</a>
+      </li>
+      <li
+        class="text-brightRedLight hover:underline hover:underline-offset-8 hover:decoration-brightRedLight transition-all duration-500 ease-in-out"
+      >
+        <a href="/auth/login">Login</a>
+      </li>
+      <% } %>
+      <li></li>
+    </div>
+  </div>
+</nav>

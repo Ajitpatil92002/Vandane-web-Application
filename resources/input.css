@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Hamburger Menu */
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: rgb(158,53,53,0.8);
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.Sticky {
+    position: fixed;
+    top: 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #fff;
+    max-width: 100%;
+    /* margin: auto; */
+    /* transition: all 0.5s ease-out; */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://res.cloudinary.com/ajitpatil/image/upload/v1668002964/vandane/team/smallbg_sqqihl.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    filter: brightness(60%);
+}
+
+.hero>div {
+    position: relative;
+}
+
+@media (min-width: 480px) {
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://res.cloudinary.com/ajitpatil/image/upload/v1668002964/vandane/team/smallbg_sqqihl.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+        filter: brightness(60%);
+    }
+}
+
+.download{
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    display: none;
+}

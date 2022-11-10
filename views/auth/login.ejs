@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vandane - Login</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <%- include("../layouts/navbar.ejs") -%>
+
+    <div
+      class="min-h-screen bg-navy-blue text-textlightWhite antialiased px-4 py-6 sm:py-12"
+    >
+      <div
+        class="relative py-3 w-full sm:max-w-xl mx-auto text-center space-y-10"
+      >
+        <span
+          class="text-2xl font-bold font-mono text-textlightWhite opacity-70"
+          >login your account</span
+        >
+        <div
+          class="relative mt-4 bg-light-navy shadow-md sm:rounded-lg text-left"
+        >
+          <form action="/auth/login" method="post">
+            <div class="p-10">
+              <div>
+                <label for="email" class="block font-semibold mt-3"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  placeholder="email"
+                  name="email"
+                  id="email"
+                  class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 rounded-md"
+                  required
+                />
+                <small id="emailerror"> </small>
+              </div>
+              <div>
+                <label for="password" class="block font-semibold mt-3"
+                  >password</label
+                >
+                <input
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  id="password"
+                  class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 rounded-md"
+                  required
+                />
+                <small id="passworderr"></small>
+              </div>
+
+              <div class="flex justify-between flex-col items-baseline mt-4">
+                <div class="flex justify-between items-baseline mt-4 w-full">
+                  <button
+                    type="submit"
+                    class="mt-4 border font-mono bg-brightRed hover:bg-brightRedLight text-white py-2 px-6 rounded-lg block"
+                  >
+                    Login
+                  </button>
+                  <a
+                    href="/auth/forgetpassword"
+                    class="text-lg font-mono text-center hover:underline underline-offset-2"
+                    >ForgotPassword?</a
+                  >
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include("../layouts/footer.ejs") -%>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

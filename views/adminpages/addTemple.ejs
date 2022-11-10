@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vandane Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tailwind.output.css" />
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="/assets/js/init-alpine.js"></script>
+  <script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+    <!-- You need focus-trap.js to make the modal accessible -->
+    <script src="./assets/js/focus-trap.js" defer></script>
+  <script>
+    tinymce.init({
+      selector: "#mytextarea",
+    });
+  </script>
+  <style>
+    .loader {
+	border-top-color: #3498db;
+	-webkit-animation: spinner 1.5s linear infinite;
+	animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="dark:bg-gray-800">
+  <div class="flex bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <%- include("../layouts/sidebar.ejs") %>
+      <div class="flex flex-col flex-1 w-full">
+        <%- include("../layouts/header.ejs") %>
+          <div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-4">
+              <div class="px-4 bg-white overflow-hidden shadow-sm sm:rounded-lg dark:bg-gray-900">
+                <h2 class="my-6 text-2xl font-semibold text-gray-700 text-center dark:text-gray-200">
+                  ADD Temple
+                </h2>
+                <div class="px-4 py-4  border-b bg-white shadow-md dark:bg-gray-800">
+                  <form >
+                    <div class="mb-4">
+                      <label class="text-xl text-gray-600 dark:text-gray-300">Title </label></br>
+                      <input type="text" name="title" id="title"
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        required />
+                       
+                    </div>
+                    <div class="mb-4">
+                      <label class="text-xl text-gray-600 dark:text-gray-300">Description</label></br>
+                      <input type="text" name="description" id="description"
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        required />
+                        
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center space-x-6 mb-8 md:p-6">
+                      <label class="flex flex-col md:flex-row pl-2  items-center md:space-x-6">
+                        <span class="text-sm dark:text-gray-300">Choose thubnail photo</span>
+                        <input type="file" name="thumbnail" id="thumbnail" class="pl-2 block w-full mt-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold  dark:text-gray-300
+                        dark:bg-gray-700" accept="image/x-png,image/gif,image/jpeg" / required>
+                      </label>
+                     
+                    </div>
+
+                    <div class="mb-8">
+
+                      <label class="text-xl text-gray-600 dark:text-gray-300">Content </label></br>
+                      <textarea id="mytextarea" name="content" 
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray">
+                      </textarea>
+                    
+                    </div>
+
+                    <div class="flex p-1">
+                      <select name="status" id="status"
+                        class="block mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                        <option>Save and Publish</option>
+                        <option>Save Draft</option>
+                      </select>
+                      <button type="submit"
+                        class="p-3 ml-2 rounded-md bg-blue-500 text-white hover:bg-blue-400">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <!-- Modal  -->
+  <div
+  class="popup-overlay hidden bg-transparent opacity-75  popup fixed inset-0 z-30  items-end sm:items-center sm:justify-center"
+>
+  <!-- Modal -->
+  <div
+    class="w-full px-6 py-4 overflow-hidden bg-gray-800  rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl"
+  >
+    <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
+    <header class="flex justify-end">
+      <button
+        class="popup-close inline-flex items-center justify-center w-6 h-6 text-gray-400 transition-colors duration-150 rounded hover: hover:text-gray-700"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          role="img"
+          aria-hidden="true"
+        >
+          <path
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+    </header>
+    <!-- Modal body -->
+    <div class="modal-body mt-4 mb-6 flex items-center flex-col space-y-4">
+      <div wire:loading class=" flex flex-col items-center justify-center">
+        <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+        <h2 class="text-center text-white text-xl font-semibold">Loading...</h2>
+        <p class="w-1/3 text-center text-white">This may take a few seconds, please don't close this page.</p>
+      </div>
+    </div>
+    <footer
+      class="flex flex-col items-center justify-center px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-[rgb(158,53,53/0.5)]"
+    >
+      <button
+        class="popup-cancel w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-gray-300 rounded-lg sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
+      >
+        Cancel
+      </button>
+    </footer>
+  </div>
+</div>
+  
+
+  <script>
+    
+const popupOverlay = document.querySelector(".popup-overlay");
+const popupClose = document.querySelector(".popup-close");
+const popupCancel = document.querySelector(".popup-cancel");
+
+
+popupClose.addEventListener("click", () => {
+  popupOverlay.classList.replace("flex","hidden");
+});
+
+popupCancel.addEventListener("click", () => {
+  popupOverlay.classList.replace("flex","hidden");
+});
+
+    document.querySelector("form").addEventListener("submit",(e)=>{
+      e.preventDefault();
+      popupOverlay.classList.replace("hidden","flex");
+      document.querySelector(".modal-body").innerHTML = `
+      <div wire:loading class="bg-gray-700 opacity-75 flex flex-col items-center justify-center">
+        <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+        <h2 class="text-center text-white text-xl font-semibold">Loading...</h2>
+        <p class="w-1/3 text-center text-white">This may take a few seconds, please don't close this page.</p>
+      </div>
+          `;
+      PostTemple("/admin/addTemple");
+
+    })
+    function PostTemple(URL) {
+      let data = new FormData();
+      const fileField = document.querySelector('#thumbnail');
+      const title = document.querySelector("#title");
+      const description = document.querySelector("#description");
+      const content = document.querySelector("#mytextarea");
+      const status = document.querySelector("#status");
+
+      data.append('thumbnail', fileField.files[0]);
+      data.append('title', title.value);
+      data.append('description', description.value);
+      data.append('content', content.value);
+      data.append("status",status.value);
+
+      axios.post(URL, data, {
+        headers: {
+          'accept': 'application/json',
+          'Accept-Language': 'en-US,en;q=0.8',
+          'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+        }
+      })
+        .then((response) => {
+          //handle success
+          document.querySelector("form").reset();
+          document.querySelector(".modal-body").innerHTML = `
+                            <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+                              <p class="font-bold">added successfully</p>
+                            </div>
+          `;
+          console.log(response);
+        }).catch((error) => {
+          //handle error
+          console.log(error);
+          const Array = Object.entries(error.response.data);
+
+          const filtered = Array.filter(([key, value]) =>  value !== '');
+
+          const err = Object.fromEntries(filtered);
+          let html='';
+          for (const key in err) {
+            html+= `<p class="font-bold">${err[key]}</p>`
+          }
+          document.querySelector(".modal-body").innerHTML = `
+                            <div class="bg-red-100  text-red-700 px-4 py-3" role="alert">
+                             ${html}
+                            </div>
+          `;
+        });
+    }
+  </script>
+</body>
+
+</html>

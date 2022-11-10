@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vandane Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tailwind.output.css" />
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="/assets/js/init-alpine.js"></script>
+  <script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      selector: "#mytextarea",
+    });
+  </script>
+</head>
+
+<body class="dark:bg-gray-800">
+  <div class="flex bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <%- include("../layouts/sidebar.ejs") %>
+      <div class="flex flex-col flex-1 w-full">
+        <%- include("../layouts/header.ejs") %>
+          <div class="p-6">
+            <div class="flex items-center space-x-4 mb-4">
+              <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+                App Status
+              </h4>
+
+            </div>
+            <% if (appStats) { %>
+              <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                <div class="w-full overflow-x-auto">
+                  <table class="w-full whitespace-no-wrap">
+                    <thead>
+                      <tr
+                        class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                        <th class="px-4 py-3">Image</th>
+                        <th class="px-4 py-3">stats</th>
+                        <th class="px-4 py-3">stats Number</th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                      <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3">
+                          <div class="flex items-center text-sm">
+                            <!-- Avatar with inset shadow -->
+                            <div class="relative hidden w-20 h-12 mr-3 md:block">
+                              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="text-red-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                                <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="px-4 py-3 text-sm">Downloads</td>
+                        <td class="px-4 py-3 text-sm">
+                          <%=appStats.downloads%>
+                        </td>
+                      </tr>
+                      <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3">
+                          <div class="flex items-center text-sm">
+                            <!-- Avatar with inset shadow -->
+                            <div class="relative hidden w-20 h-12 mr-3 md:block">
+                              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="text-red-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="px-4 py-3 text-sm">Active Users</td>
+                        <td class="px-4 py-3 text-sm">
+                          <%=appStats.users%>
+                        </td>
+
+                      </tr>
+                      <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3">
+                          <div class="flex items-center text-sm">
+                            <!-- Avatar with inset shadow -->
+                            <div class="relative hidden w-20 h-12 mr-3 md:block">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" class="text-red-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 256 256"
+                                xml:space="preserve">
+                                <defs></defs>
+                                <g style="
+                                  stroke: none;
+                                  stroke-width: 0;
+                                  stroke-dasharray: none;
+                                  stroke-linecap: butt;
+                                  stroke-linejoin: miter;
+                                  stroke-miterlimit: 10;
+                                  fill: none;
+  
+                                  fill-rule: nonzero;
+                                  opacity: 1;
+                                " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                  <path
+                                    d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 62.251 46.633 L 37.789 60.756 c -1.258 0.726 -2.829 -0.181 -2.829 -1.633 V 30.877 c 0 -1.452 1.572 -2.36 2.829 -1.634 l 24.461 14.123 C 63.508 44.092 63.508 45.907 62.251 46.633 z"
+                                    style="
+                                    stroke: none;
+                                    stroke-width: 1;
+                                    stroke-dasharray: none;
+                                    stroke-linecap: butt;
+                                    stroke-linejoin: miter;
+                                    stroke-miterlimit: 10;
+                                    fill: rgb(239 68 68 /1);
+                                    fill-rule: nonzero;
+                                    opacity: 1;
+                                  " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                </g>
+                              </svg>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="px-4 py-3 text-sm">Pravachans</td>
+                        <td class="px-4 py-3 text-sm">
+                          <%=appStats.Pravachans%>
+                        </td>
+
+                      </tr>
+                      <tr class="text-gray-700 dark:text-gray-400">
+                        <td class="px-4 py-3">
+                          <div class="flex items-center text-sm">
+                            <!-- Avatar with inset shadow -->
+                            <div class="relative hidden w-20 h-12 mr-3 md:block">
+                              <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000233/vandane/team/temple_pd1ssh.svg" alt="logo" class="w-12 h-12 mb-3 inline-block" />
+                            </div>
+                          </div>
+                        </td>
+                        <td class="px-4 py-3 text-sm">Temples</td>
+                        <td class="px-4 py-3 text-sm">
+                          <%=appStats.Temples%>
+                        </td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="max-w-7xl sm:px-6 lg:px-8 mb-4">
+                <div class="px-4 bg-white overflow-hidden shadow-sm sm:rounded-lg dark:bg-gray-900">
+                  <h2 class="my-6 text-2xl font-semibold text-gray-700 text-center dark:text-gray-200">
+                    Edit App stats
+                  </h2>
+                  <div class="px-4 py-4 w-3/5 mx-auto  border-b bg-white shadow-md dark:bg-gray-800">
+                    <form action="/admin/stats/<%= appStats._id %> " method="post">
+                      <div class="mb-4">
+                        <label class="text-base text-gray-600 dark:text-gray-300">Downloads</label></br>
+                        <input type="text" name="downloads" value="<%=appStats.downloads%>"
+                          class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                          required />
+                      </div>
+                      <div class="mb-4">
+                        <label class="text-base text-gray-600 dark:text-gray-300">Active Users</label></br>
+                        <input type="text" name="users" value="<%=appStats.users%>"
+                          class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                          required />
+                      </div>
+                      <div class="mb-4">
+                        <label class="text-base text-gray-600 dark:text-gray-300">Pravachans</label></br>
+                        <input type="text" name="Pravachans" value="<%=appStats.Pravachans%>"
+                          class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                          required />
+                      </div>
+                      <div class="mb-4">
+                        <label class="text-base text-gray-600 dark:text-gray-300">Temples</label></br>
+                        <input type="text" name="Temples" value="<%=appStats.Temples%>"
+                          class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                          required />
+                      </div>
+                      <div class="p-1">
+                        <button type="submit"
+                          class="p-3 ml-2 rounded-md bg-blue-500 text-white hover:bg-blue-400">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <% } else { %>
+                <a href="/admin/StatsCreate">
+                  <button type="submit"
+                    class="mt-4 border font-mono bg-brightRed hover:bg-brightRedLight text-white py-2 px-6 rounded-lg block">
+                    create appStats
+                  </button>
+                </a>
+                <% } %>
+          </div>
+      </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vandane</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body class="bg-veryLightGray">
+    <%- include("../layouts/navbar.ejs") %>
+
+    <!-- // Temples -->
+    <section class="text-gray-600 body-font mb-32">
+      <div class="container px-5 mt-10 mx-auto">
+        <h1
+          class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900"
+        >
+          <img
+            src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg"
+            alt="logo"
+            class="w-12 h-12 mb-3 inline-block pr-3"
+          />
+          <span class="font-Molle">Temples</span>
+          <img
+            src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg"
+            alt="logo"
+            class="w-12 h-12 mb-3 inline-block pr-3"
+          />
+        </h1>
+        <div class="flex flex-wrap -m-4">
+          <% if (Temples) { %> <% Temples.forEach((temple)=>{ %>
+          <div class="p-4 md:w-1/4">
+            <div
+              class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+            >
+              <a href="/templecontent/<%= temple.slug %>">
+                <img
+                  class="lg:h-48 md:h-36 w-full object-cover object-center"
+                  src="<%- temple.thumbnail %> "
+                  alt="blog"
+                />
+              </a>
+              <div class="p-6">
+                <a href="/templecontent/<%= temple.slug %>">
+                  <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                    <%= temple.title %>
+                  </h1>
+                </a>
+                <p class="leading-relaxed mb-3"><%= temple.discription %></p>
+              </div>
+            </div>
+          </div>
+          <% })} %>
+        </div>
+      </div>
+    </section>
+
+    <%- include("../layouts/footer.ejs")%>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

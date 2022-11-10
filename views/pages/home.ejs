@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vandane</title>
+  <link rel="stylesheet" href="/css/app.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;300;400;500;600&family=Molle&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="bg-veryLightGray">
+  <div id="cta">
+    <%- include("../layouts/navbar.ejs") %>
+      <!-- Hero-Section -->
+      <section id="hero" class="hero h-screen">
+        <div class="container flex flex-col-reverse items-center px-6 mx-auto space-y-4 md:space-y-0 md:flex-row">
+          <!-- Left-items -->
+          <div class="flex flex-col md:mb-32 space-y-6 mt-10 md:mt-0 md:w-1/2">
+            <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left font-Molle text-red-500 ">
+              <span class="text-sm md:text-3xl"> <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo"
+                  class="w-8 h-8 mb-3 inline-block pr-1 md:hidden md:pr-3" /></span>
+              Vandane App
+              <span class="text-sm md:text-3xl"> <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo"
+                  class="w-8 h-8 md:w-12 md:h-12 mb-3 inline-block pr-1 md:pr-3" /></span>
+            </h1>
+            <div class="opacity-80 md:text-red-500 font-Molle text-white font-semibold">
+              <p class="text-2xl md:text-sm max-w-sm text-center md:text-left leading">
+                A Way to Connect With Spirtual !
+              </p>
+              <p class="text-2xl md:text-[1rem] max-w-sm text-center md:text-left">
+                A Way To Watch Pravachans,Temple Darshans,Devotional songs,
+                Shlokas And Live Darshana From Temples .
+              </p>
+            </div>
+            <div class="flex lg:flex-row md:flex-col self-center md:self-auto pt-4">
+              <button
+                class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-red-500"
+                  viewBox="0 0 512 512">
+                  <path
+                    d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
+                  </path>
+                </svg>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=apli1389213.mxt&pli=1">
+                  <span class="ml-4 flex items-start flex-col leading-none">
+                    <span class="text-xs text-gray-600 mb-1">GET IT ON</span>
+                    <span class="title-font font-medium">Google Play</span>
+                  </span>
+                 </a>
+              </button>
+            </div>
+          </div>
+          <!-- image -->
+          <div class="md:w-3/4 hidden md:block p-0 bg-transparent rounded-lg">
+            <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000137/vandane/team/hero-img_gpaunz.gif" alt="heroimg" class="rounded-lg" />
+          </div>
+        </div>
+      </section>
+  </div>
+  <!-- stats -->
+  <section class="container mx-auto md:mt-10">
+    <div class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+            <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo" class="w-12 h-12 mb-3 inline-block pr-3" />
+            <span class="font-Molle">Vision </span>
+            <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo" class="w-12 h-12 mb-3 inline-block pl-3" />
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base font-cursive">
+            Providing a digital platform to watch Pravachans , Temple Darshans
+            , Devotional songs in an easy ways!
+            <br />
+            Teachings a Indian culture to the world and projecting our rich
+            cultural and spiritual heritage.
+          </p>
+        </div>
+        <div class="flex flex-wrap m-4 text-center">
+          <% if (appStats) { %>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full cursor-pointer">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="text-red-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                  <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                  <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                </svg>
+                <h2 class="title-font font-medium text-3xl text-gray-900">
+
+                  <%=appStats.downloads%>
+
+                </h2>
+                <p class="leading-relaxed">Downloads</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full cursor-pointer">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="text-red-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                </svg>
+                <h2 class="title-font font-medium text-3xl text-gray-900">
+                  <%=appStats.users%>
+                </h2>
+                <p class="leading-relaxed">Users</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full cursor-pointer">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                  class="text-red-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 256 256" xml:space="preserve">
+                  <defs></defs>
+                  <g style="
+                      stroke: none;
+                      stroke-width: 0;
+                      stroke-dasharray: none;
+                      stroke-linecap: butt;
+                      stroke-linejoin: miter;
+                      stroke-miterlimit: 10;
+                      fill: none;
+
+                      fill-rule: nonzero;
+                      opacity: 1;
+                    " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                    <path
+                      d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 62.251 46.633 L 37.789 60.756 c -1.258 0.726 -2.829 -0.181 -2.829 -1.633 V 30.877 c 0 -1.452 1.572 -2.36 2.829 -1.634 l 24.461 14.123 C 63.508 44.092 63.508 45.907 62.251 46.633 z"
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 10;
+                        fill: rgb(239 68 68 /1);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                  </g>
+                </svg>
+                <h2 class="title-font font-medium text-3xl text-gray-900">
+                  <%=appStats.Pravachans%>
+                </h2>
+                <p class="leading-relaxed">Pravachans</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/4 sm:w-1/2 w-full cursor-pointer">
+              <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000233/vandane/team/temple_pd1ssh.svg" alt="" class="w-12 h-12 mb-3 inline-block" />
+                <h2 class="title-font font-medium text-3xl text-gray-900">
+                  <%=appStats.Temples%>
+                </h2>
+                <p class="leading-relaxed">Temples</p>
+              </div>
+            </div>
+            <% } %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pravachan -->
+  <section class="text-gray-600 body-font mb-10">
+    <div class="container px-5 mt-10 mx-auto">
+      <h1 class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900">
+        <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo" class="w-12 h-12 mb-3 inline-block pr-3" />
+        <span class="font-Molle">Pravachans</span>
+        <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo" class="w-12 h-12 mb-3 inline-block pr-3" />
+      </h1>
+      <div class="flex flex-wrap -m-4">
+        <% if (pravachans.length !== 0) { %>
+          <% pravachans.forEach(pravachan => { %>
+            <div class="p-4 md:w-1/4">
+              <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                <img class="openmodel cursor-pointer lg:h-[20rem] md:h-44 w-full object-cover object-center"
+                  src="<%= pravachan.thumbnail %> " alt="<%= pravachan.name %>img" />
+                <div class="p-6">
+                  <h1 class="openmodel cursor-pointer title-font text-lg font-medium text-gray-900 mb-3">
+                    <%= pravachan.name %> 
+                  </h1>
+                  <p class="leading-relaxed mb-3">
+                    <%= pravachan.discription %> 
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        <% } else if(pravachans.length === 0) { %>
+          <h1 class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900 mx-auto">
+            <span class="font-Molle">Pravachans Not Found</span>
+          </h1>
+         <% } %> 
+      </div>
+    </div>
+  </section>
+
+  <!-- // Temples -->
+  <section class="text-gray-600 body-font mb-32">
+    <div class="container px-5 mt-10 mx-auto">
+      <h1 class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900">
+        <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo" class="w-12 h-12 mb-3 inline-block pr-3" />
+        <span class="font-Molle">Temples</span>
+        <img src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg" alt="logo" class="w-12 h-12 mb-3 inline-block pr-3" />
+      </h1>
+      <div class="flex flex-wrap -m-4">
+        <% if (Temples) { %>
+          <% Temples.forEach((temple)=>{ %>
+            <div class="p-4 md:w-1/4">
+              <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                <a href="/templecontent/<%= temple.slug %>">
+                  <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="<%- temple.thumbnail %> "
+                    alt="blog" />
+                </a>
+                <div class="p-6">
+                  <a href="/templecontent/<%= temple.slug %>">
+                    <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+                      <%= temple.title %>
+                    </h1>
+                  </a>
+                  <p class="leading-relaxed mb-3">
+                    <%= temple.discription %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% })} %>
+      </div>
+    </div>
+  </section>
+
+  <!-- // Teams -->
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">
+          OUR TEAM
+        </h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+          Vandane Mobile Application Team
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center items-center -m-4">
+        <div class="p-4 lg:w-1/4 md:w-1/2">
+          <div class="h-full flex flex-col items-center text-center">
+            <img alt="team" class="flex-shrink-0 rounded-lg w-full h-64 object-cover object-center mb-4"
+              src="https://res.cloudinary.com/ajitpatil/image/upload/v1667999985/vandane/team/abhi_ssj0gn.png" />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Abhishek Puranik Pd
+              </h2>
+              <h3 class="text-gray-500 mb-3">CEO | Co-Founder</h3>
+              <p class="mb-4">
+                Chief Executive Officer at <br> Vandane Mobile Application
+              </p>
+              <span class="inline-flex">
+                <a class="text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path
+                      d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path stroke="none"
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 lg:w-1/4 md:w-1/2">
+          <div class="h-full flex flex-col items-center text-center">
+            <img alt="team" class="flex-shrink-0 rounded-lg w-full h-64 object-cover object-center mb-4"
+              src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000032/vandane/team/Kunal_isjci2.jpg" />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Kunal Patil
+              </h2>
+              <h3 class="text-gray-500 mb-3">Co-Founder</h3>
+              <p class="mb-4">
+                Co-Founder of Vandane and CEO at <br> Shivendu Infotech PVT LTD
+              </p>
+              <span class="inline-flex">
+                <a class="text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path
+                      d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path stroke="none"
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 lg:w-1/4 md:w-1/2">
+          <div class="h-full flex flex-col items-center text-center">
+            <img alt="team" class="flex-shrink-0 rounded-lg w-full h-64 object-cover object-center mb-4"
+              src="https://res.cloudinary.com/ajitpatil/image/upload/c_scale,h_1000/v1668000733/vandane/team/Ajit_Patil_edoczf.jpg" />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Ajit Rajesh Patil
+              </h2>
+              <h3 class="text-gray-500 mb-3">CTO | Co-Founder</h3>
+              <p class="mb-4">
+                SDE and CTO at <br> Vandane Mobile Application
+              </p>
+              <span class="inline-flex">
+                <a class="text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path
+                      d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path stroke="none"
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 lg:w-1/4 md:w-1/2">
+          <div class="h-full flex flex-col items-center text-center">
+            <img alt="team" class="flex-shrink-0 rounded-lg w-64 h-auto object-cover object-center mb-4"
+              src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000022/vandane/team/balaji_zly9a4.png" />
+            <div class="w-full">
+              <h2 class="title-font font-medium text-lg text-gray-900">
+                Balaji Patil
+              </h2>
+              <h3 class="text-gray-500 mb-3">CMO | Co- Founder</h3>
+              <p class="mb-4">
+                Chief marketing officer at <br> Vandane Mobile Application
+              </p>
+              <span class="inline-flex">
+                <a class="te-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <path
+                      d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                  </svg>
+                </a>
+                <a class="ml-3 text-gray-500 hover:cursor-pointer">
+                  <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path stroke="none"
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                  </svg>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class=" bg-gray-100">
+    <div class="container mx-auto text-gray-600 body-font relative">
+      <h1 class="text-2xl font-medium title-font text-gray-900 text-center py-6">
+        contact us
+      </h1>
+      <div class="px-5 py-20 flex sm:flex-nowrap flex-wrap">
+        <div
+          class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+          <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
+            marginwidth="0" scrolling="no"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60744.09607627426!2d77.4945472!3d17.90853805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcec722d6908ce5%3A0xb9a71b6e00adff6c!2sBidar%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1660670199052!5m2!1sen!2sin"
+            style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+          <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+            <div class="lg:w-1/2 px-6">
+              <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+              <p class="mt-1">Bidar ,Karnataka</p>
+            </div>
+            <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+              <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+              <p class="mt-1">vandaneapp@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full p-4 md:p-8  md:mt-0">
+          <form action="/conatact" method="post">
+            <div class="relative mb-4">
+              <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+              <input type="text" id="name" name="name"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <small id="nameerror"></small>
+            </div>
+            <div class="relative mb-4">
+              <label for="name" class="leading-7 text-sm text-gray-600">Phone</label>
+              <input type="tel" id="phone" name="phone"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <small id="phoneerror"> </small>
+            </div>
+            <div class="relative mb-4">
+              <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+              <input type="email" id="email" name="email"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <small id="emailerror"> </small>
+            </div>
+            <div class="relative mb-4">
+              <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+              <textarea id="message" name="message"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              <small id="msgerror"> </small>
+            </div>
+            <button type="submit"
+              class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="download shadow-md rounded-md">
+    <a href="https://play.google.com/store/apps/details?id=apli1389213.mxt&pli=1" target="_blank" rel="noopener noreferrer">
+    <button class="bg-transparent inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-red-500" viewBox="0 0 512 512">
+        <path
+          d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
+        </path>
+      </svg>
+    </button>
+  </a>
+  </div>
+
+  <!--footer  -->
+  <%- include("../layouts/footer.ejs") %>
+
+    <!-- Modal  -->
+    <div
+      class="popup-overlay hidden popup fixed inset-0 z-30 items-end bg-black bg-opacity-50 sm:items-center sm:justify-center transition-all duration-500 ease-linear">
+      <!-- Modal -->
+      <div
+        class="w-full px-6 py-4 overflow-hidden bg-[rgb(158,53,53,0.8)]  rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl">
+        <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
+        <header class="flex justify-end">
+          <button
+            class="popup-close inline-flex items-center justify-center w-6 h-6 text-gray-400 transition-colors duration-150 rounded hover: hover:text-gray-700">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" role="img" aria-hidden="true">
+              <path
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd" fill-rule="evenodd"></path>
+            </svg>
+          </button>
+        </header>
+        <!-- Modal body -->
+        <div class="mt-4 mb-6 flex items-center flex-col space-y-4">
+          <div>
+            <p class="mb-2 text-base text-white text-center">
+              To see Pravachans Download our <br />
+              VANDANE Mobile Application.
+            </p>
+          </div>
+          <div>
+            <button
+              class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-red-500"
+                viewBox="0 0 512 512">
+                <path
+                  d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
+                </path>
+              </svg>
+              <a href="https://play.google.com/store/apps/details?id=apli1389213.mxt&pli=1" target="_blank" rel="noopener noreferrer">
+              <span class="ml-4 flex items-start flex-col leading-none">
+                <span class="text-xs text-gray-600 mb-1">GET IT ON</span>
+                <span class="title-font font-medium">Google Play</span>
+              </span>
+            </a>
+            </button>
+          </div>
+        </div>
+        <footer
+          class="flex flex-col items-center justify-center px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-[rgb(158,53,53/0.5)]">
+          <button
+            class="popup-cancel w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-gray-300 rounded-lg sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+            Cancel
+          </button>
+        </footer>
+      </div>
+    </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/FixedDownloadBtn.js"></script>
+    <script src="/js/modelPopUp.js"></script>
+    <script src="/js/contactForm.js"></script>
+</body>
+
+</html>
