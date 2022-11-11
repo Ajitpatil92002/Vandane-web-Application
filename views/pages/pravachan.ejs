@@ -15,10 +15,26 @@
       content="vandane mobile app ,
     Pravachana kannada app , Swamiji pravachana in kannada , siddeshwar Swamiji pravachana , Koppal Gavisiddeshwar Swamiji pravachana , Shivakumar Swamiji pravachana , devotional app , kannada pravachana app"
     />
-    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/icons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/icons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/icons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/icons/apple-icon-76x76.png"
+    />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
@@ -50,9 +66,24 @@
       sizes="192x192"
       href="/icons/android-icon-192x192.png"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/icons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
     <link rel="manifest" href="/icons/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
@@ -85,8 +116,7 @@
           />
         </h1>
         <div class="flex flex-wrap -m-4">
-          <% if (pravachans.length !== 0) { %> <% pravachans.forEach(pravachan
-          => { %>
+          <% if (pravachans.length !== 0) { %>  <% pravachans.forEach(pravachan => { %>
           <div class="p-4 md:w-1/4">
             <div
               class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
@@ -94,7 +124,7 @@
               <img
                 class="openmodel cursor-pointer lg:h-[20rem] md:h-44 w-full object-cover object-center"
                 src="<%= pravachan.thumbnail %> "
-                alt="<%= pravachan.name %>img"
+                alt="<%= pravachan.name %>"
               />
               <div class="p-6">
                 <h1
@@ -106,13 +136,10 @@
               </div>
             </div>
           </div>
-          <% }) %> <% } else if(pravachans.length === 0) { %>
-          <h1
-            class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900 mx-auto"
-          >
-            <span class="font-Poppins">Pravachans Not Found</span>
-          </h1>
-          <% } %>
+          <% }) %> <% } else { %>
+            <p class="title-font text-lg font-medium text-gray-900 mb-3 text-center">Pravachana Not Found</p>
+           <% } %> 
+
         </div>
       </div>
     </section>
