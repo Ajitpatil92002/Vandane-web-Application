@@ -16,6 +16,7 @@ module.exports = {
       fontFamily: {
         Albert: ["Albert Sans"],
         Molle: ["Molle", "cursive"],
+        Poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         brightRed: "rgb(239 68 68 /1)",

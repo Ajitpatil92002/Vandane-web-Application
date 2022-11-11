@@ -4,8 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vandane</title>
+    <title>Vandane - Pravachans</title>
+    <meta
+      name="description"
+      content="A Way To Watch Pravachans,Temple Darshans,Devotional songs,
+    Shlokas And Live Darshana From Temples ."
+    />
+    <meta
+      name="keywords"
+      content="vandane mobile app ,
+    Pravachana kannada app , Swamiji pravachana in kannada , siddeshwar Swamiji pravachana , Koppal Gavisiddeshwar Swamiji pravachana , Shivakumar Swamiji pravachana , devotional app , kannada pravachana app"
+    />
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/icons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/icons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/icons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/icons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/icons/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+    <link rel="manifest" href="/icons/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
     <link rel="stylesheet" href="/css/app.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-veryLightGray">
     <%- include("../layouts/navbar.ejs") %>
@@ -21,7 +77,7 @@
             alt="logo"
             class="w-12 h-12 mb-3 inline-block pr-3"
           />
-          <span class="font-Molle">Pravachans</span>
+          <span class="font-Poppins">Pravachans</span>
           <img
             src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg"
             alt="logo"
@@ -29,101 +85,106 @@
           />
         </h1>
         <div class="flex flex-wrap -m-4">
-          <% if (pravachans.length !== 0) { %>
-            <% pravachans.forEach(pravachan => { %>
-              <div class="p-4 md:w-1/4">
-                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                  <img class="openmodel cursor-pointer lg:h-[20rem] md:h-44 w-full object-cover object-center"
-                    src="<%= pravachan.thumbnail %> " alt="<%= pravachan.name %>img" />
-                  <div class="p-6">
-                    <h1 class="openmodel cursor-pointer title-font text-lg font-medium text-gray-900 mb-3">
-                      <%= pravachan.name %> 
-                    </h1>
-                    <p class="leading-relaxed mb-3">
-                      <%= pravachan.discription %> 
-                    </p>
-                  </div>
-                </div>
+          <% if (pravachans.length !== 0) { %> <% pravachans.forEach(pravachan
+          => { %>
+          <div class="p-4 md:w-1/4">
+            <div
+              class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+            >
+              <img
+                class="openmodel cursor-pointer lg:h-[20rem] md:h-44 w-full object-cover object-center"
+                src="<%= pravachan.thumbnail %> "
+                alt="<%= pravachan.name %>img"
+              />
+              <div class="p-6">
+                <h1
+                  class="openmodel cursor-pointer title-font text-lg font-medium text-gray-900 mb-3"
+                >
+                  <%= pravachan.name %>
+                </h1>
+                <p class="leading-relaxed mb-3"><%= pravachan.discription %></p>
               </div>
-            <% }) %>
-          <% } else if(pravachans.length === 0) { %>
-            <h1 class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900 mx-auto">
-              <span class="font-Molle">Pravachans Not Found</span>
-            </h1>
-           <% } %> 
+            </div>
+          </div>
+          <% }) %> <% } else if(pravachans.length === 0) { %>
+          <h1
+            class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900 mx-auto"
+          >
+            <span class="font-Poppins">Pravachans Not Found</span>
+          </h1>
+          <% } %>
         </div>
       </div>
     </section>
     <%- include("../layouts/footer.ejs")%>
-     <!-- Modal  -->
-     <div
-     class="popup-overlay hidden popup fixed inset-0 z-30  items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
-   >
-  
-     <!-- Modal -->
-     <div
-       class="w-full px-6 py-4 overflow-hidden bg-[rgb(158,53,53,0.8)]  rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl"
-     >
-       <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
-       <header class="flex justify-end">
-         <button
-           class="popup-close inline-flex items-center justify-center w-6 h-6 text-gray-400 transition-colors duration-150 rounded hover: hover:text-gray-700"
-         >
-           <svg
-             class="w-4 h-4"
-             fill="currentColor"
-             viewBox="0 0 20 20"
-             role="img"
-             aria-hidden="true"
-           >
-             <path
-               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-               clip-rule="evenodd"
-               fill-rule="evenodd"
-             ></path>
-           </svg>
-         </button>
-       </header>
-       <!-- Modal body -->
-       <div class="mt-4 mb-6 flex items-center flex-col space-y-4">
-         <div>
-           <p class="mb-2 text-base text-white text-center">
-             To  see  Pravachans  Download our  <br />
-             VANDANE Mobile Application.
-           </p>
-         </div>
-         <div>
-           <button
-             class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none"
-           >
-             <svg
-               xmlns="http://www.w3.org/2000/svg"
-               fill="currentColor"
-               class="w-6 h-6 text-red-500"
-               viewBox="0 0 512 512"
-             >
-               <path
-                 d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z"
-               ></path>
-             </svg>
-             <span class="ml-4 flex items-start flex-col leading-none">
-               <span class="text-xs text-gray-600 mb-1">GET IT ON</span>
-               <span class="title-font font-medium">Google Play</span>
-             </span>
-           </button>
-         </div>
-       </div>
-       <footer
-         class="flex flex-col items-center justify-center px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-[rgb(158,53,53/0.5)]"
-       >
-         <button
-           class="popup-cancel w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-gray-300 rounded-lg sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
-         >
-           Cancel
-         </button>
-       </footer>
-     </div>
-   </div>
+    <!-- Modal  -->
+    <div
+      class="popup-overlay hidden popup fixed inset-0 z-30 items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+    >
+      <!-- Modal -->
+      <div
+        class="w-full px-6 py-4 overflow-hidden bg-[rgb(158,53,53,0.8)] rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl"
+      >
+        <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
+        <header class="flex justify-end">
+          <button
+            class="popup-close inline-flex items-center justify-center w-6 h-6 text-gray-400 transition-colors duration-150 rounded hover: hover:text-gray-700"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              role="img"
+              aria-hidden="true"
+            >
+              <path
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </header>
+        <!-- Modal body -->
+        <div class="mt-4 mb-6 flex items-center flex-col space-y-4">
+          <div>
+            <p class="mb-2 text-base text-white text-center">
+              To see Pravachans Download our <br />
+              VANDANE Mobile Application.
+            </p>
+          </div>
+          <div>
+            <button
+              class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="w-6 h-6 text-red-500"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z"
+                ></path>
+              </svg>
+              <span class="ml-4 flex items-start flex-col leading-none">
+                <span class="text-xs text-gray-600 mb-1">GET IT ON</span>
+                <span class="title-font font-medium">Google Play</span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <footer
+          class="flex flex-col items-center justify-center px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-[rgb(158,53,53/0.5)]"
+        >
+          <button
+            class="popup-cancel w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-gray-300 rounded-lg sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
+          >
+            Cancel
+          </button>
+        </footer>
+      </div>
+    </div>
     <script src="/js/app.js"></script>
     <script src="/js/modelPopUp.js"></script>
   </body>

@@ -36,6 +36,9 @@ router.get("/pravachans", async (req, res) => {
 router.get("/team", async (req, res) => {
   res.render("./pages/team");
 });
+router.get("/about", async (req, res) => {
+  res.render("./pages/about");
+});
 
 router.get("/templecontent/:slug", async (req, res) => {
   const slug = req.params.slug;
