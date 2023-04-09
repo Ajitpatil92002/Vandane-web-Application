@@ -33,6 +33,14 @@ router.get("/pravachans", async (req, res) => {
   res.render("./pages/pravachan", { pravachans });
 });
 
+router.get("/pravachans/:slug", async (req, res) => {
+  const { videos } = await Pravachana.findOne({ slug: req.params.slug })
+    .sort({ updatedAt: "desc" })
+    .select({ videos: 1 });
+
+  res.render("./pages/pravachanaPage", { pravachans: videos });
+});
+
 router.get("/team", async (req, res) => {
   res.render("./pages/team");
 });

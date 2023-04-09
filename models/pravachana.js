@@ -21,7 +21,7 @@ const PravachanaSchema = new mongoose.Schema(
     cloudinary_id: {
       type: String,
     },
-    channel_id: [{ type: String }],
+    videos: [],
   },
   { timestamps: true }
 );
