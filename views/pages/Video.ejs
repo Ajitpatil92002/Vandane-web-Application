@@ -97,54 +97,45 @@
   <body class="bg-veryLightGray">
     <%- include("../layouts/navbar.ejs") %>
 
-    <!-- // Temples -->
-    <section class="text-gray-600 body-font mb-10">
-      <div class="container px-5 mt-10 mx-auto">
-        <h1
-          class="sm:text-3xl text-2xl font-medium text-center title-font mb-10 text-gray-900"
-        >
-          <img
-            src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg"
-            alt="logo"
-            class="w-12 h-12 mb-3 inline-block pr-3"
-          />
-          <span class="font-Poppins">Pravachans</span>
-          <img
-            src="https://res.cloudinary.com/ajitpatil/image/upload/v1668000221/vandane/team/namaste_d9ssou.svg"
-            alt="logo"
-            class="w-12 h-12 mb-3 inline-block pr-3"
-          />
-        </h1>
-        <div class="flex flex-wrap -m-4">
-          <% if (pravachans.length !== 0) { %>  <% pravachans.forEach(pravachan => { %>
-            <div class="p-4 md:w-1/3">
-                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                  <a href="/pravachans/<%= slug %>/videos/<%= pravachan.videoId %>">
+    <section class="container mx-auto mb-32">
+      <% if (video) { %>
 
-                  <img class="lg:h-60 md:h-36 w-full object-cover object-center"   src="<%= pravachan.thumbnail.medium.url %> "
-                  alt="<%= pravachan.title %>">
-                  <a/>
-                  <div class="p-6">
-                    <a href="/pravachans/<%= slug %>/videos/<%= pravachan.videoId %>">
-                        <h1
-                          class="openmodel cursor-pointer title-font text-lg font-medium text-gray-900 mb-3"
-                        >
-                          <%= pravachan.title %>
-                        </h1> 
-                  </div>
-                </div>
-              </div>
-         
-          <% }) %> <% } else { %>
-            <p class="title-font text-lg font-medium text-gray-900 mb-3 text-center">Pravachana Not Found</p>
-           <% } %> 
-
+      <div
+        class="wrapper flex flex-col md:flex-row items-center justify-evenly p-3 md:p-0"
+      >
+        <div class="left md:w-1/2">
+          <div>
+           
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/<%= video.videoId %>"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="w-full object-cover object-center h-64 md:h-96"
+            ></iframe>
+          </div>
+          <div class="mt-10">
+            <div>
+              <h1 class="text-2xl font-Poppins font-semibold pb-6">
+                <%= video.title %>
+              </h1>
+            </div>
+            <div class="discription text-xl font-sans">
+              <%= video.discription %>
+            </div>
+          </div>
         </div>
       </div>
+      <% } else { %>
+      <div>No video Found</div>
+      <% } %>
     </section>
+
     <%- include("../layouts/footer.ejs")%>
-    <!-- Modal  -->
-   
+
     <script src="/js/app.js"></script>
   </body>
 </html>

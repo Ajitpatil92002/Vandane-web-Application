@@ -1918,6 +1918,10 @@ video {
     height: 9rem;
   }
 
+  .md\:h-96 {
+    height: 24rem;
+  }
+
   .md\:w-12 {
     width: 3rem;
   }

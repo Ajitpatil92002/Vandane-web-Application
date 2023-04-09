@@ -38,12 +38,40 @@ router.get("/pravachans/:slug", async (req, res) => {
     .sort({ updatedAt: "desc" })
     .select({ videos: 1 });
 
-  res.render("./pages/pravachanaPage", { pravachans: videos });
+  res.render("./pages/pravachanaPage", { pravachans: videos, slug: req.params.slug });
+});
+
+// fetch particular video from Pravachana document
+router.get("/pravachans/:slug/videos/:videoId", async (req, res) => {
+  try {
+    const { slug, videoId } = req.params;
+
+    // fetch Pravachana document by ID
+    const pravachana = await Pravachana.findOne({ slug });
+
+    if (!pravachana) {
+      return res.status(404).json({ error: "Pravachana not found" });
+    }
+
+    // find video in Pravachana document by ID
+    const video = pravachana.videos.find((v) => v.videoId.toString() === videoId);
+
+    if (!video) {
+      return res.status(404).json({ error: "Video not found" });
+    }
+
+    // send response with video data
+    res.render("./pages/Video", { video });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 router.get("/team", async (req, res) => {
   res.render("./pages/team");
 });
+
 router.get("/about", async (req, res) => {
   res.render("./pages/about");
 });
