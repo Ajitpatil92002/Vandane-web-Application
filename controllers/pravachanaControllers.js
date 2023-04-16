@@ -4,7 +4,6 @@ const Cloudinary = require("../utils/cloudinary");
 const dotenv = require("dotenv");
 const axios = require("axios");
 
-
 dotenv.config();
 
 module.exports.addPravachana_get = async (req, res) => {
@@ -36,7 +35,6 @@ module.exports.addPravachana_post = async (req, res) => {
         }
       );
 
-      
       // extract video details from API response
       const videoData = response.data.items.map((item) => ({
         title: item.snippet.title,
@@ -44,7 +42,7 @@ module.exports.addPravachana_post = async (req, res) => {
         thumbnail: item.snippet.thumbnails,
         videoId: item.id.videoId,
       }));
-      
+
       console.log(response.data.items);
       // add videos to array
       videos.push(...videoData);
@@ -62,6 +60,7 @@ module.exports.addPravachana_post = async (req, res) => {
       name: req.body.name,
       discription: req.body.discription,
       thumbnail: result.secure_url,
+      ytChannelId: req.body.channelId,
       status: req.body.status,
       slug: convertToSlug(req.body.name),
       cloudinary_id: result.public_id,
@@ -88,31 +87,6 @@ module.exports.updatePravachana_get = async (req, res) => {
   res.render("./adminpages/editPravachana", pravachana);
 };
 
-// module.exports.updatePravachana_post = async (req, res) => {
-//   try {
-//     const oldTemple = await Pravachana.findOne({ slug: req.params.slug });
-//     await Cloudinary.uploader.destroy(oldTemple.cloudinary_id);
-//     const result = await Cloudinary.uploader.upload(req.file.path);
-//     const temple = await Pravachana.findOneAndUpdate(
-//       { slug: req.params.slug },
-//       {
-//         $set: {
-//           name: req.body.name,
-//           discription: req.body.discription,
-//           thumbnail: result.secure_url,
-//           status: req.body.status,
-//           slug: convertToSlug(req.body.name),
-//           cloudinary_id: result.public_id,
-//         },
-//       }
-//     );
-//     res.redirect("/admin/Pravachana");
-//   } catch (err) {
-//     console.log(err);
-//     res.status(404).render("./error/404");
-//   }
-// };
-
 module.exports.updatePravachana_post = async (req, res) => {
   try {
     const pravachanaId = req.params.id;
@@ -121,7 +95,7 @@ module.exports.updatePravachana_post = async (req, res) => {
     const pravachana = await Pravachana.findById(pravachanaId);
 
     if (!pravachana) {
-      return res.status(404).json({ error: "Pravachana not found" });
+      res.status(404).render("./error/404");
     }
 
     // extract updated data from request body
@@ -189,5 +163,71 @@ module.exports.Pravachana_getOne = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.json({ err });
+  }
+};
+
+module.exports.fetchRemainingVideos = async (req, res) => {
+  try {
+    const pravachana = await Pravachana.findById(req.params.pravachanaId);
+    if (!pravachana) {
+      console.log(pravachana);
+      res.status(404).render("404");
+    }
+    const channelId = pravachana.ytChannelId;
+    const apiKey = process.env.YT_API_KEY;
+    const maxResults = 50; // maximum number of videos per page
+    let pageToken;
+
+    const videos = [];
+    do {
+      const response = await axios.get(
+        "https://www.googleapis.com/youtube/v3/search",
+        {
+          params: {
+            channelId,
+            key: apiKey,
+            part: "snippet",
+            type: "video",
+            maxResults,
+            pageToken,
+          },
+        }
+      );
+
+      // extract video details from API response
+      const videoData = response.data.items.map((item) => ({
+        title: item.snippet.title,
+        description: item.snippet.description,
+        thumbnail: item.snippet.thumbnails,
+        videoId: item.id.videoId,
+      }));
+
+      const savedVideoIds = pravachana.videos.map((video) => video.videoId);
+      const newVideos = videoData.filter(
+        (video) => !savedVideoIds.includes(video.videoId)
+      );
+
+      // add new videos to array
+      videos.push(...newVideos);
+
+      // set token for next page of results
+      pageToken = response.data.nextPageToken;
+    } while (pageToken);
+
+    // update Pravachana with new videos
+    pravachana.videos.push(
+      ...videos.map((video) => ({
+        title: video.title,
+        description: video.description,
+        thumbnail: video.thumbnail,
+        videoId: video.videoId,
+      }))
+    );
+
+    await pravachana.save();
+    // send response with updated Pravachana document
+    res.redirect("/admin/Pravachana");
+  } catch (err) {
+    res.status(404).render("./error/404");
   }
 };

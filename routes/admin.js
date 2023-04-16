@@ -18,6 +18,7 @@ const {
   deletePravachana,
   updatePravachana_get,
   updatePravachana_post,
+  fetchRemainingVideos,
 } = require("../controllers/pravachanaControllers");
 
 const {
@@ -76,6 +77,6 @@ router.post(
   updatePravachana_post
 );
 router.get("/deletePravachana/:slug", deletePravachana);
-
+router.get("/fetch-remaining-videos/:pravachanaId", fetchRemainingVideos);
 
 module.exports = router;

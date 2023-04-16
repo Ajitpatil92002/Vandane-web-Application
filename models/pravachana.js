@@ -15,6 +15,10 @@ const PravachanaSchema = new mongoose.Schema(
       type: String,
       required: [true, "please submit thumbnail"],
     },
+    ytChannelId: {
+      type: String,
+      required: [true, "please submit thumbnail"],
+    },
     status: {
       type: String,
     },

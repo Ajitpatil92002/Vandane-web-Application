@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const home_Route = require("./routes/home");
 const admin_route = require("./routes/admin");
 const auth_Route = require("./routes/auth");
+const pravachanRoute = require("./routes/api");
 const { checkUser, verifyTokenAdmin } = require("./middlewares/authMiddleware");
 
 const app = express();
@@ -35,6 +36,7 @@ app.use(
 );
 
 app.use("/", checkUser, home_Route);
+app.use("/api",pravachanRoute)
 app.use("/admin", verifyTokenAdmin, checkUser, admin_route);
 app.use("/auth", checkUser, auth_Route);
 app.all("*", (req, res) => {
